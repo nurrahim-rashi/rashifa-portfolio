@@ -1,17 +1,23 @@
-/** @type {import('tailwindcss').Config} */
+import typography from "@tailwindcss/typography";
+
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+
   theme: {
     extend: {
       fontFamily: {
-        sans: ["DM Sans"],
-        script: ['MiltonTwoBold', 'cursive'],
-        boldrussian: ['"Bad Russian"', 'sans-serif'],
+        sans: [
+          "Helvetica",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Segoe UI",
+          "Roboto",
+        ],
+        script: ["Blosta Script"],
+        boldrussian: ["Bad Russian", "Helvetica"],
       },
     },
   },
-  plugins: [require('@tailwindcss/typography')],
-}
+
+  plugins: [typography],
+};

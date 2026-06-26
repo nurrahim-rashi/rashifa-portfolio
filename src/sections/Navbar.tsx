@@ -33,6 +33,14 @@ export default function Navbar() {
           >
             Contact
           </a>
+          <a
+            href="https://drive.google.com/file/d/1XuEXdviJ2WAJVX1Ym0bhTjceXaF3DU9d/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#2A3D63] font-boldrussian hover:text-neutral-900 hover:underline transition"
+          >
+            Resume
+          </a>{" "}
         </div>
 
         {/* hamburger */}
@@ -70,6 +78,14 @@ export default function Navbar() {
           </a>
           <a href="#contact" onClick={() => setOpen(false)}>
             Contact
+          </a>{" "}
+          <a
+            href="https://drive.google.com/file/d/1XuEXdviJ2WAJVX1Ym0bhTjceXaF3DU9d/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setOpen(false)}
+          >
+            Resume
           </a>
         </div>
       )}

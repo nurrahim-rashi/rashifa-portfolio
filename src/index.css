@@ -9,19 +9,24 @@ html {
 @font-face {
   font-family: "Blosta Script";
   src: url("/fonts/BlostaScript.woff2") format("woff2");
-  font-weight: normal;
-  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica;
+}
+
+.font-script {
+  font-family: "Blosta Script", cursive;
 }
 
 .scrollbar-hidden::-webkit-scrollbar {
   display: none;
 }
+
 .scrollbar-hidden {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
-@import "tailwindcss/forms";
-@import "preline/dist/variants.css";
 @import "tailwindcss/forms";
 @import "preline/dist/variants.css";
