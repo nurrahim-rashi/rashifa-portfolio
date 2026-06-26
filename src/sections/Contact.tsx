@@ -36,11 +36,7 @@ export default function Contact() {
           I’m open to collaboration, freelance, or just chatting over coffee ☕️
         </p>
         <p className="mb-6 text-neutral-600">
-          I’m open to collaboration, freelance, or just chatting over coffee ☕️
-        </p>
-
-        <p className="mb-6 text-neutral-600">
-          All of the visuals here captured through my lens 🌿📷✨
+          Btw, all of the visuals here captured through my lens 🌿📷✨
         </p>
 
         {/* SOCIAL BUTTONS */}
