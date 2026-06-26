@@ -13,7 +13,7 @@ export default {
           "Segoe UI",
           "Roboto",
         ],
-        script: ["Parisienne"],
+        script: ["Ballet", "cursive"],
         boldrussian: ["Helvetica"],
       },
     },

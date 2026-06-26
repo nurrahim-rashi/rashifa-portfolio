@@ -35,6 +35,13 @@ export default function Contact() {
         <p className="mb-6 text-neutral-600">
           I’m open to collaboration, freelance, or just chatting over coffee ☕️
         </p>
+        <p className="mb-6 text-neutral-600">
+          I’m open to collaboration, freelance, or just chatting over coffee ☕️
+        </p>
+
+        <p className="mb-6 text-neutral-600">
+          All of the visuals here captured through my lens 🌿📷✨
+        </p>
 
         {/* SOCIAL BUTTONS */}
         <div className="flex justify-center gap-4 mt-6 flex-wrap">
