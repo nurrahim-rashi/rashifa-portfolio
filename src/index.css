@@ -7,16 +7,29 @@ html {
 }
 
 @font-face {
-  font-family: "Blosta Script";
-  src: url("/fonts/BlostaScript.woff2") format("woff2");
+  font-family: "MonsieurLaDoulaise";
+  src: url("public/fonts/MonsieurLaDoulaise-Regular.ttf") format("woff2");
   font-display: swap;
 }
+
+@font-face {
+  font-family: "Ballet";
+  src: url("public/fonts/Ballet-Regular-VariableFont_opsz.ttf") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Parisienne";
+  src: url("public/fonts/Parisienne-Regular.ttf") format("woff2");
+  font-display: swap;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica;
 }
 
 .font-script {
-  font-family: "Blosta Script", cursive;
+  font-family: "Parisienne", cursive;
 }
 
 .scrollbar-hidden::-webkit-scrollbar {

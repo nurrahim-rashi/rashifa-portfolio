@@ -23,7 +23,7 @@ export default function Hero() {
     >
       <div className="max-w-4xl mx-auto grid grid-cols-1 gap-12 items-center">
         <div>
-          <h1 className="text-4xl text-[#2A3D63] md:text-8xl font-bold mb-4 leading-tight font-script">
+          <h1 className="text-4xl text-[#2A3D63] md:text-8xl font-bold mb-4 leading-tight font-script tracking-wide leading-tight">
             Rashifa Nurrahim
           </h1>
 
