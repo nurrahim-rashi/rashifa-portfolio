@@ -5,7 +5,15 @@ import project2 from "../images/project2.png";
 import project3 from "../images/project3.png";
 import project4 from "../images/project4.jpeg";
 
-import { FaFigma, FaHtml5, FaLaravel, FaPhp, FaDatabase } from "react-icons/fa";
+import {
+  FaFigma,
+  FaHtml5,
+  FaLaravel,
+  FaPhp,
+  FaDatabase,
+  FaReact,
+} from "react-icons/fa";
+import { SiTypescript } from "react-icons/si";
 
 const scrollbarHideStyle = `
   .no-scrollbar::-webkit-scrollbar { display: none; }
@@ -15,25 +23,6 @@ const scrollbarHideStyle = `
 export default function FeaturedProjects() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const style = document.createElement("style");
-    style.innerHTML = scrollbarHideStyle;
-    document.head.appendChild(style);
-  }, []);
-
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-
-    const handleScroll = () => {
-      const index = Math.round(el.scrollLeft / el.offsetWidth);
-      setCurrentIndex(index);
-    };
-
-    el.addEventListener("scroll", handleScroll, { passive: true });
-    return () => el.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const projects = [
     {
@@ -52,11 +41,10 @@ export default function FeaturedProjects() {
       link: "https://core-pilates-rashifa.vercel.app/",
       role: "Fullstack",
       tech: [
-        { label: "React", icon: <FaLaravel /> },
-        { label: "Typescript", icon: <FaPhp /> },
+        { label: "React", icon: <FaReact /> },
+        { label: "Typescript", icon: <SiTypescript /> },
       ],
     },
-
     {
       title: "DetakKita",
       img: project3,
@@ -77,10 +65,50 @@ export default function FeaturedProjects() {
     },
   ];
 
+  const extendedProjects = [...projects, ...projects, ...projects];
+
+  useEffect(() => {
+    const style = document.createElement("style");
+    style.innerHTML = scrollbarHideStyle;
+    document.head.appendChild(style);
+  }, []);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const width = el.offsetWidth / 3;
+    el.scrollLeft = projects.length * width;
+    setCurrentIndex(projects.length);
+  }, []);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    const handleScroll = () => {
+      const itemWidth = el.offsetWidth / 3;
+      let index = Math.round(el.scrollLeft / itemWidth);
+
+      const len = projects.length;
+
+      if (index < len) {
+        el.scrollLeft = (index + len) * itemWidth;
+        index = index + len;
+      } else if (index >= len * 2) {
+        el.scrollLeft = (index - len) * itemWidth;
+        index = index - len;
+      }
+
+      setCurrentIndex(index);
+    };
+
+    el.addEventListener("scroll", handleScroll, { passive: true });
+    return () => el.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <section className="py-28 bg-[#F4EFE5] text-[#2A3D63]">
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
-        {/* HEADER */}
+      <div className="mx-auto">
         <div className="text-center mb-14">
           <h2 className="text-4xl md:text-6xl font-serif mt-2">
             Selected Works 🍵
@@ -90,30 +118,27 @@ export default function FeaturedProjects() {
         {/* CAROUSEL */}
         <div
           ref={scrollRef}
-          className="no-scrollbar flex overflow-x-auto snap-x snap-mandatory scroll-smooth space-x-10 md:space-x-14 pb-10"
+          className="no-scrollbar flex overflow-x-auto snap-x snap-mandatory scroll-smooth space-x-4 md:space-x-14 pb-10"
         >
-          {projects.map((project, i) => {
-            const active = currentIndex === i;
+          {extendedProjects.map((project, i) => {
+            const realIndex = i % projects.length;
+            const active = currentIndex % projects.length === realIndex;
 
             return (
               <motion.div
                 key={i}
-                className="min-w-full snap-start flex justify-center"
+                className="min-w-[33.333%] snap-start flex justify-center"
                 animate={{
                   scale: active ? 1 : 0.92,
                   rotate: active ? 0 : i % 2 === 0 ? -2 : 2,
-                  opacity: active ? 1 : 0.55,
+                  opacity: 1,
                 }}
                 transition={{ duration: 0.5 }}
               >
-                {/* STAMP WRAPPER */}
-                <div className="relative w-[340px] md:w-[520px]">
-                  {/* shadow */}
+                <div className="relative w-[280px] md:w-[520px]">
                   <div className="absolute inset-0 bg-black/10 blur-2xl translate-y-6 scale-95" />
 
-                  {/* STAMP BODY */}
                   <div className="relative bg-[#fbfaf7] shadow-xl">
-                    {/* 🧾 REAL PERFORATED FRAME (THIS IS THE KEY FIX) */}
                     <div className="absolute inset-0 pointer-events-none">
                       <svg
                         className="w-full h-full"
@@ -140,7 +165,6 @@ export default function FeaturedProjects() {
                       </svg>
                     </div>
 
-                    {/* CONTENT */}
                     <div className="p-5">
                       <div className="aspect-[4/3] overflow-hidden">
                         <img
@@ -186,14 +210,17 @@ export default function FeaturedProjects() {
         {/* DOTS */}
         <div className="flex justify-center gap-2 mt-6">
           {projects.map((_, i) => {
-            const active = currentIndex === i;
+            const active = currentIndex % projects.length === i;
 
             return (
               <button
                 key={i}
                 onClick={() => {
                   scrollRef.current?.scrollTo({
-                    left: i * (scrollRef.current?.offsetWidth || 0),
+                    left:
+                      ((projects.length + i) *
+                        (scrollRef.current?.offsetWidth || 0)) /
+                      3,
                     behavior: "smooth",
                   });
                 }}

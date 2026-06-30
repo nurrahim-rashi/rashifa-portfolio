@@ -21,9 +21,10 @@ function App() {
         <Contact />
       </main>
 
+      {/* BACK TO TOP */}
       <a
         href="#top"
-        className="fixed bottom-20 right-6 z-50 bg-white border border-[#2A3D63] shadow p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+        className="fixed bottom-20 right-6 z-[999] bg-white border border-[#2A3D63] shadow p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 transform-gpu pointer-events-auto"
         aria-label="Back to top"
       >
         <svg

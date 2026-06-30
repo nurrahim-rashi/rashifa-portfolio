@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import backgroundd from "../images/bg.png";
-import ScrollDownButton from "../components/ScrollDownButton";
 import InteractiveText from "../components/InteractiveText";
 import PolaroidCard from "../components/PolaroidCard";
 
@@ -115,8 +114,6 @@ export default function Hero() {
           <PolaroidCard />
         </motion.div>
       </motion.div>
-
-      <ScrollDownButton />
     </section>
   );
 }
