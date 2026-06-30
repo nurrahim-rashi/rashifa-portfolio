@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import project1 from "../images/project1.jpeg";
 import project2 from "../images/project2.jpeg";
@@ -71,10 +72,37 @@ export default function FeaturedProjects() {
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut" as const,
+      },
+    },
+  };
+
   return (
-    <section
+    <motion.section
       id="featured-projects"
       className="py-20 md:py-28 bg-[#F4EFE5] text-[#2A3D63]"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         {/* CAROUSEL */}
@@ -83,12 +111,16 @@ export default function FeaturedProjects() {
           className="no-scrollbar flex overflow-x-auto snap-x snap-mandatory scroll-smooth space-x-6 md:space-x-12 pb-6"
         >
           {projects.map((project, i) => (
-            <div
+            <motion.div
               key={i}
+              variants={itemVariants}
               className="min-w-full snap-start grid md:grid-cols-2 gap-8 lg:gap-16 items-center"
             >
               {/* TEXT SIDE */}
-              <div className="md:py-10 text-center md:text-left">
+              <motion.div
+                variants={itemVariants}
+                className="md:py-10 text-center md:text-left"
+              >
                 <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-neutral-500 mb-4">
                   {project.role}
                 </p>
@@ -106,7 +138,6 @@ export default function FeaturedProjects() {
                   ))}
                 </div>
 
-                {/* EXISTING BUTTON (UNCHANGED STYLE) */}
                 <a
                   href={project.link}
                   target="_blank"
@@ -121,21 +152,24 @@ export default function FeaturedProjects() {
                 >
                   Explore →
                 </a>
-              </div>
+              </motion.div>
 
-              {/* IMAGE SIDE — LANDSCAPE FIX */}
-              <div className="relative w-full aspect-[16/10] md:aspect-[16/9] overflow-hidden rounded-xl shadow-lg">
+              {/* IMAGE SIDE */}
+              <motion.div
+                variants={itemVariants}
+                className="relative w-full aspect-[16/10] md:aspect-[16/9] overflow-hidden rounded-xl shadow-lg"
+              >
                 <img
                   src={project.img}
                   alt={project.title}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                 />
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           ))}
         </div>
 
-        {/* DOTS */}
+        {/* DOTS (UNCHANGED) */}
         <div className="flex justify-center items-center mt-6 gap-2 md:gap-3">
           {projects.map((_, idx) => {
             const active = currentIndex === idx;
@@ -159,6 +193,6 @@ export default function FeaturedProjects() {
           })}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

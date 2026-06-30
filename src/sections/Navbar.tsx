@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -40,7 +41,7 @@ export default function Navbar() {
             className="text-[#2A3D63] font-boldrussian hover:text-neutral-900 hover:underline transition"
           >
             Resume
-          </a>{" "}
+          </a>
         </div>
 
         {/* hamburger */}
@@ -67,28 +68,36 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* mobile menu */}
-      {open && (
-        <div className="md:hidden bg-white shadow-md px-4 py-3 flex flex-col gap-4">
-          <a href="#featured-projects" onClick={() => setOpen(false)}>
-            Projects
-          </a>
-          <a href="#about" onClick={() => setOpen(false)}>
-            About
-          </a>
-          <a href="#contact" onClick={() => setOpen(false)}>
-            Contact
-          </a>{" "}
-          <a
-            href="https://drive.google.com/file/d/1XuEXdviJ2WAJVX1Ym0bhTjceXaF3DU9d/view?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setOpen(false)}
+      {/* mobile menu (ANIMATED) */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden bg-white shadow-md px-4 py-3 flex flex-col gap-4"
           >
-            Resume
-          </a>
-        </div>
-      )}
+            <a href="#featured-projects" onClick={() => setOpen(false)}>
+              Projects
+            </a>
+            <a href="#about" onClick={() => setOpen(false)}>
+              About
+            </a>
+            <a href="#contact" onClick={() => setOpen(false)}>
+              Contact
+            </a>
+            <a
+              href="https://drive.google.com/file/d/1XuEXdviJ2WAJVX1Ym0bhTjceXaF3DU9d/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+            >
+              Resume
+            </a>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

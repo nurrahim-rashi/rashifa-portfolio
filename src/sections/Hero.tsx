@@ -48,9 +48,9 @@ export default function Hero() {
             <br />
             is a QA Engineer &
             <br />
-            Product Designer currently working at
+            Product Designer based in
             <br />
-            <span className="italic">Rove</span>.
+            <span className="italic">Indonesia</span>.
           </motion.h1>
         </div>
 

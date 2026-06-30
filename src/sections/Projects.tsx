@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import ProjectCard from "../components/ProjectCard";
 
+import { motion } from "framer-motion";
+
 import { SiMongodb, SiExpress, SiWordpress } from "react-icons/si";
 import { FaReact, FaNodeJs, FaPhp, FaCss3Alt, FaFigma } from "react-icons/fa";
 import { convertToWebp } from "../utils/image";
@@ -16,10 +18,6 @@ export default function Projects() {
       const height = window.innerHeight;
 
       const isPortrait = height > width;
-
-      // ONLY 2 CASES YOU WANTED:
-      // - iPad Mini vertical
-      // - iPad Air vertical
       const isTargetTabletPortrait = isPortrait && width >= 700 && width <= 900;
 
       setVisibleCount(isTargetTabletPortrait ? 2 : 3);
@@ -83,12 +81,15 @@ export default function Projects() {
     : projects.slice(0, visibleCount);
 
   return (
-    <section
+    <motion.section
       id="projects"
       className="py-20 text-white px-4 bg-[#2A3D63] bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage: `url(${backgrounddd})`,
       }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
     >
       <div className="max-w-6xl mx-auto text-center">
         {/* Title */}
@@ -99,23 +100,32 @@ export default function Projects() {
         {/* Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {displayedProjects.map((p, i) => (
-            <ProjectCard key={i} {...p} />
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: i * 0.05 }}
+            >
+              <ProjectCard {...p} />
+            </motion.div>
           ))}
         </div>
 
         {/* BUTTON */}
         <div className="flex justify-center mt-12 font-serif">
-          <button
+          <motion.button
             onClick={() => setShowMore(!showMore)}
             className="px-6 py-3 text-xl text-white border border-neutral-400 rounded-full transition hover:bg-white hover:ring-2 hover:ring-white hover:border-neutral-800 hover:text-neutral-800 flex items-center gap-2 hover:scale-105"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             {showMore ? "See Less" : "See More"}
             <span className="inline-block transition-transform">
               {showMore ? "↑" : "↓"}
             </span>
-          </button>
+          </motion.button>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
