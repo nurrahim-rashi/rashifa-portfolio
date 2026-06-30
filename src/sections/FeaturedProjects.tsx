@@ -1,20 +1,15 @@
 import { motion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import project1 from "../images/project1.jpeg";
-import project2 from "../images/project2.jpeg";
+import project2 from "../images/project2.png";
 import project3 from "../images/project3.png";
+import project4 from "../images/project4.jpeg";
 
 import { FaFigma, FaHtml5, FaLaravel, FaPhp, FaDatabase } from "react-icons/fa";
 
 const scrollbarHideStyle = `
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 `;
 
 export default function FeaturedProjects() {
@@ -37,7 +32,6 @@ export default function FeaturedProjects() {
     };
 
     el.addEventListener("scroll", handleScroll, { passive: true });
-
     return () => el.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -53,8 +47,26 @@ export default function FeaturedProjects() {
       ],
     },
     {
-      title: "Booksy",
+      title: "Core Pilates",
       img: project2,
+      link: "https://core-pilates-rashifa.vercel.app/",
+      role: "Fullstack",
+      tech: [
+        { label: "React", icon: <FaLaravel /> },
+        { label: "Typescript", icon: <FaPhp /> },
+      ],
+    },
+
+    {
+      title: "DetakKita",
+      img: project3,
+      link: "https://rashifa.webflow.io/work/detakkita",
+      role: "UI/UX Design",
+      tech: [{ label: "Figma", icon: <FaFigma /> }],
+    },
+    {
+      title: "Booksy",
+      img: project4,
       link: "https://rashifa.laravelsanbercode.my.id/",
       role: "Fullstack",
       tech: [
@@ -63,136 +75,136 @@ export default function FeaturedProjects() {
         { label: "MySQL", icon: <FaDatabase /> },
       ],
     },
-    {
-      title: "DetakKita",
-      img: project3,
-      link: "https://rashifa.webflow.io/work/detakkita",
-      role: "UI/UX Design",
-      tech: [{ label: "Figma", icon: <FaFigma /> }],
-    },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut" as const,
-      },
-    },
-  };
-
   return (
-    <motion.section
-      id="featured-projects"
-      className="py-20 md:py-28 bg-[#F4EFE5] text-[#2A3D63]"
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-    >
+    <section className="py-28 bg-[#F4EFE5] text-[#2A3D63]">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
+        {/* HEADER */}
+        <div className="text-center mb-14">
+          <h2 className="text-4xl md:text-6xl font-serif mt-2">
+            Selected Works 🍵
+          </h2>
+        </div>
+
         {/* CAROUSEL */}
         <div
           ref={scrollRef}
-          className="no-scrollbar flex overflow-x-auto snap-x snap-mandatory scroll-smooth space-x-6 md:space-x-12 pb-6"
+          className="no-scrollbar flex overflow-x-auto snap-x snap-mandatory scroll-smooth space-x-10 md:space-x-14 pb-10"
         >
-          {projects.map((project, i) => (
-            <motion.div
-              key={i}
-              variants={itemVariants}
-              className="min-w-full snap-start grid md:grid-cols-2 gap-8 lg:gap-16 items-center"
-            >
-              {/* TEXT SIDE */}
+          {projects.map((project, i) => {
+            const active = currentIndex === i;
+
+            return (
               <motion.div
-                variants={itemVariants}
-                className="md:py-10 text-center md:text-left"
+                key={i}
+                className="min-w-full snap-start flex justify-center"
+                animate={{
+                  scale: active ? 1 : 0.92,
+                  rotate: active ? 0 : i % 2 === 0 ? -2 : 2,
+                  opacity: active ? 1 : 0.55,
+                }}
+                transition={{ duration: 0.5 }}
               >
-                <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-neutral-500 mb-4">
-                  {project.role}
-                </p>
+                {/* STAMP WRAPPER */}
+                <div className="relative w-[340px] md:w-[520px]">
+                  {/* shadow */}
+                  <div className="absolute inset-0 bg-black/10 blur-2xl translate-y-6 scale-95" />
 
-                <h3 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-[0.95] mb-6">
-                  {project.title}
-                </h3>
+                  {/* STAMP BODY */}
+                  <div className="relative bg-[#fbfaf7] shadow-xl">
+                    {/* 🧾 REAL PERFORATED FRAME (THIS IS THE KEY FIX) */}
+                    <div className="absolute inset-0 pointer-events-none">
+                      <svg
+                        className="w-full h-full"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <defs>
+                          <pattern
+                            id="stamp-dots"
+                            width="14"
+                            height="14"
+                            patternUnits="userSpaceOnUse"
+                          >
+                            <circle cx="7" cy="7" r="2.2" fill="#d6cbb6" />
+                          </pattern>
+                        </defs>
 
-                <div className="flex flex-wrap justify-center md:justify-start gap-3 md:gap-4 mb-8 text-sm md:text-base">
-                  {project.tech.map((t, idx) => (
-                    <div key={idx} className="flex items-center gap-2">
-                      <span>{t.icon}</span>
-                      <span className="font-medium">{t.label}</span>
+                        <rect
+                          width="100%"
+                          height="100%"
+                          fill="none"
+                          stroke="url(#stamp-dots)"
+                          strokeWidth="18"
+                        />
+                      </svg>
                     </div>
-                  ))}
+
+                    {/* CONTENT */}
+                    <div className="p-5">
+                      <div className="aspect-[4/3] overflow-hidden">
+                        <img
+                          src={project.img}
+                          className="h-full w-full object-cover transition duration-700 hover:scale-110"
+                        />
+                      </div>
+
+                      <div className="mt-5 text-center">
+                        <p className="text-[10px] tracking-[0.35em] uppercase text-neutral-500">
+                          {project.role}
+                        </p>
+
+                        <h3 className="text-2xl md:text-3xl font-serif mt-2">
+                          {project.title}
+                        </h3>
+
+                        <div className="flex justify-center gap-3 mt-4 text-sm text-neutral-600">
+                          {project.tech.map((t, idx) => (
+                            <span key={idx} className="flex items-center gap-1">
+                              {t.icon}
+                              {t.label}
+                            </span>
+                          ))}
+                        </div>
+
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          className="inline-block mt-6 rounded-full bg-[#2A3D63] px-5 py-2 text-white font-serif hover:scale-105 transition hover:bg-white hover:text-[#2A3D63]"
+                        >
+                          Open Stamp →
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="
-                    text-base md:text-xl px-5 md:px-6 py-2 md:py-3
-                    bg-[#2A3D63] text-white rounded-full
-                    transition hover:ring-2 hover:ring-white
-                    hover:bg-white hover:text-[#2A3D63]
-                    font-serif hover:scale-105 inline-block
-                  "
-                >
-                  Explore →
-                </a>
               </motion.div>
-
-              {/* IMAGE SIDE */}
-              <motion.div
-                variants={itemVariants}
-                className="relative w-full aspect-[16/10] md:aspect-[16/9] overflow-hidden rounded-xl shadow-lg"
-              >
-                <img
-                  src={project.img}
-                  alt={project.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                />
-              </motion.div>
-            </motion.div>
-          ))}
+            );
+          })}
         </div>
 
-        {/* DOTS (UNCHANGED) */}
-        <div className="flex justify-center items-center mt-6 gap-2 md:gap-3">
-          {projects.map((_, idx) => {
-            const active = currentIndex === idx;
+        {/* DOTS */}
+        <div className="flex justify-center gap-2 mt-6">
+          {projects.map((_, i) => {
+            const active = currentIndex === i;
 
             return (
               <button
-                key={idx}
+                key={i}
                 onClick={() => {
                   scrollRef.current?.scrollTo({
-                    left: idx * (scrollRef.current?.offsetWidth || 0),
+                    left: i * (scrollRef.current?.offsetWidth || 0),
                     behavior: "smooth",
                   });
                 }}
-                className={`rounded-full transition-all ${
-                  active
-                    ? "w-4 h-4 md:w-5 md:h-5 bg-[#2A3D63] scale-110"
-                    : "w-2 h-2 md:w-3 md:h-3 border border-[#2A3D63]"
+                className={`transition-all rounded-full ${
+                  active ? "w-6 h-2 bg-[#2A3D63]" : "w-2 h-2 bg-[#2A3D63]/30"
                 }`}
               />
             );
           })}
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }
