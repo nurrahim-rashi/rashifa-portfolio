@@ -84,7 +84,7 @@ export default function About() {
       {/* Intro */}
       <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div>
-          <h2 className="text-5xl text-[#2A3D63] font-script font-bold mb-6">
+          <h2 className="text-5xl text-[#2A3D63] font-serif font-bold mb-6">
             About Me
           </h2>
 
@@ -99,7 +99,7 @@ export default function About() {
 
       {/* Certificates */}
       <div className="max-w-4xl mx-auto mt-12">
-        <h3 className="text-3xl text-[#2A3D63] font-script font-semibold mb-6 text-left">
+        <h3 className="text-3xl text-[#2A3D63] font-serif font-semibold mb-6 text-left">
           Certificates 📜
         </h3>
 
@@ -136,7 +136,7 @@ export default function About() {
 
       {/* Stacks */}
       <div className="max-w-4xl mx-auto mt-12">
-        <h3 className="text-3xl font-script text-[#2A3D63] font-bold mb-6">
+        <h3 className="text-3xl font-serif text-[#2A3D63] font-bold mb-6">
           Stacks ⚡
         </h3>
 

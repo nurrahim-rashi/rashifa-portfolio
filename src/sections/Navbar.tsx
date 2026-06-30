@@ -8,7 +8,7 @@ export default function Navbar() {
       <nav className="flex justify-between items-center max-w-7xl mx-auto px-4 py-3">
         <a
           href="#"
-          className="text-xl font-bold text-[#2A3D63] font-script hover:text-neutral-900"
+          className="text-xl font-bold text-[#2A3D63] font-serif hover:text-neutral-900"
         >
           Rashifa N
         </a>

@@ -1,14 +1,10 @@
 import { useRef, useState, useEffect } from "react";
-import { convertToWebp } from "../utils/image";
 import project1 from "../images/project1.jpeg";
 import project2 from "../images/project2.jpeg";
 import project3 from "../images/project3.png";
 
 import { FaFigma, FaHtml5, FaLaravel, FaPhp, FaDatabase } from "react-icons/fa";
 
-/* ================================
-   GLOBAL SCROLLBAR HIDE STYLE
-   ================================ */
 const scrollbarHideStyle = `
   .no-scrollbar::-webkit-scrollbar {
     display: none;
@@ -78,44 +74,39 @@ export default function FeaturedProjects() {
   return (
     <section
       id="featured-projects"
-      className="pt-20 md:pt-24 pb-24 md:pb-36 bg-[#F4EFE5] text-[#2A3D63]"
+      className="py-20 md:py-28 bg-[#F4EFE5] text-[#2A3D63]"
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         {/* CAROUSEL */}
         <div
           ref={scrollRef}
-          className="
-            no-scrollbar flex overflow-x-auto snap-x snap-mandatory scroll-smooth
-            space-x-6 md:space-x-12 pb-6 md:pb-10
-          "
+          className="no-scrollbar flex overflow-x-auto snap-x snap-mandatory scroll-smooth space-x-6 md:space-x-12 pb-6"
         >
           {projects.map((project, i) => (
             <div
               key={i}
-              className="
-                min-w-full snap-start flex flex-col lg:flex-row
-                gap-8 md:gap-14 items-center
-              "
+              className="min-w-full snap-start grid md:grid-cols-2 gap-8 lg:gap-16 items-center"
             >
-              {/* LEFT */}
-              <div className="w-full lg:w-1/3 text-center lg:text-left">
-                <p className="text-xs md:text-sm uppercase tracking-widest text-neutral-500 mb-2">
+              {/* TEXT SIDE */}
+              <div className="md:py-10 text-center md:text-left">
+                <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-neutral-500 mb-4">
                   {project.role}
                 </p>
 
-                <h3 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-3 leading-tight">
+                <h3 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-[0.95] mb-6">
                   {project.title}
                 </h3>
 
-                <div className="flex flex-wrap justify-center lg:justify-start gap-3 md:gap-2 mb-6 text-sm md:text-base">
+                <div className="flex flex-wrap justify-center md:justify-start gap-3 md:gap-4 mb-8 text-sm md:text-base">
                   {project.tech.map((t, idx) => (
-                    <div key={idx} className="flex items-center gap-2 md:gap-3">
+                    <div key={idx} className="flex items-center gap-2">
                       <span>{t.icon}</span>
                       <span className="font-medium">{t.label}</span>
                     </div>
                   ))}
                 </div>
 
+                {/* EXISTING BUTTON (UNCHANGED STYLE) */}
                 <a
                   href={project.link}
                   target="_blank"
@@ -125,18 +116,19 @@ export default function FeaturedProjects() {
                     bg-[#2A3D63] text-white rounded-full
                     transition hover:ring-2 hover:ring-white
                     hover:bg-white hover:text-[#2A3D63]
-                    font-script hover:scale-105 inline-block
+                    font-serif hover:scale-105 inline-block
                   "
                 >
                   Explore →
                 </a>
               </div>
 
-              {/* IMAGE */}
-              <div className="relative w-full lg:w-2/3 aspect-video overflow-hidden rounded-xl shadow-lg">
+              {/* IMAGE SIDE — LANDSCAPE FIX */}
+              <div className="relative w-full aspect-[16/10] md:aspect-[16/9] overflow-hidden rounded-xl shadow-lg">
                 <img
                   src={project.img}
-                  className="absolute inset-0 w-full h-full object-cover"
+                  alt={project.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>
             </div>
@@ -144,7 +136,7 @@ export default function FeaturedProjects() {
         </div>
 
         {/* DOTS */}
-        <div className="flex justify-center items-center mt-4 md:mt-6 gap-2 md:gap-3">
+        <div className="flex justify-center items-center mt-6 gap-2 md:gap-3">
           {projects.map((_, idx) => {
             const active = currentIndex === idx;
 

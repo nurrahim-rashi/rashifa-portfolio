@@ -92,7 +92,7 @@ export default function Projects() {
     >
       <div className="max-w-6xl mx-auto text-center">
         {/* Title */}
-        <h2 className="text-4xl font-script font-bold mb-10 inline-block">
+        <h2 className="text-4xl font-serif font-bold mb-10 inline-block">
           Other Projects✨
         </h2>
 
@@ -104,7 +104,7 @@ export default function Projects() {
         </div>
 
         {/* BUTTON */}
-        <div className="flex justify-center mt-12 font-script">
+        <div className="flex justify-center mt-12 font-serif">
           <button
             onClick={() => setShowMore(!showMore)}
             className="px-6 py-3 text-xl text-white border border-neutral-400 rounded-full transition hover:bg-white hover:ring-2 hover:ring-white hover:border-neutral-800 hover:text-neutral-800 flex items-center gap-2 hover:scale-105"

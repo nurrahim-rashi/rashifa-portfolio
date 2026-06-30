@@ -23,7 +23,7 @@ export default function Hero() {
     >
       <div className="max-w-4xl mx-auto grid grid-cols-1 gap-12 items-center">
         <div>
-          <h1 className="text-4xl text-[#2A3D63] md:text-8xl font-bold mb-4 leading-tight font-script tracking-wide leading-tight">
+          <h1 className="text-4xl text-[#2A3D63] md:text-8xl mb-4 leading-tight font-serif tracking-wide leading-tight">
             Rashifa Nurrahim
           </h1>
 
@@ -34,14 +34,14 @@ export default function Hero() {
           <div className="flex gap-4 flex-wrap">
             <a
               href="#projects"
-              className="text-xl px-6 py-3 bg-[#2A3D63] text-white rounded-full transition hover:ring-2 hover:ring-white hover:bg-white hover:text-[#2A3D63] hover:border-[#2A3D63] font-script hover:scale-105"
+              className="text-xl px-6 py-3 bg-[#2A3D63] text-white rounded-full transition hover:ring-2 hover:ring-white hover:bg-white hover:text-[#2A3D63] hover:border-[#2A3D63] font-serif hover:scale-105"
             >
               View Projects
             </a>
 
             <a
               href="#contact"
-              className="text-xl px-6 py-3 text-[#2A3D63] rounded-full border border-[#2A3D63] transition hover:ring-2 hover:ring-white hover:bg-white hover:text-[#2A3D63] hover:border-[#2A3D63] font-script hover:scale-105"
+              className="text-xl px-6 py-3 text-[#2A3D63] rounded-full border border-[#2A3D63] transition hover:ring-2 hover:ring-white hover:bg-white hover:text-[#2A3D63] hover:border-[#2A3D63] font-serif hover:scale-105"
             >
               Get in Touch
             </a>

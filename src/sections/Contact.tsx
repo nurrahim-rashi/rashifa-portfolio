@@ -28,7 +28,7 @@ export default function Contact() {
       className="py-20 px-4 bg-[#F4EFE5] text-center bg-cover"
     >
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-5xl font-script font-bold mb-6 text-[#2A3D63]">
+        <h2 className="text-5xl font-serif font-bold mb-6 text-[#2A3D63]">
           Let’s Connect!
         </h2>
 
