@@ -67,6 +67,7 @@ export default function About() {
         { label: "Playwright" },
         { icon: <SiCypress />, label: "Cypress" },
         { icon: <SiPostman />, label: "Postman" },
+        { label: "Katalon Studio" },
       ],
     },
     {
@@ -101,13 +102,13 @@ export default function About() {
             {[
               {
                 role: "Quality Assurance Engineer",
-                company: "Rove Card, Inc. (New York, US)",
+                company: "Rove Card, Inc.",
                 period: "2026 - Present",
               },
               {
                 role: "Quality Assurance",
-                company: "SMP (Technology) (Jakarta Metropolitan Area)",
-                period: "2024-2026",
+                company: "SMP (Technology)",
+                period: "2024 - 2026",
               },
             ].map((exp, i) => (
               <motion.div
