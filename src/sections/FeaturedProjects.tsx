@@ -107,7 +107,10 @@ export default function FeaturedProjects() {
   }, []);
 
   return (
-    <section className="py-28 bg-[#F4EFE5] text-[#2A3D63]">
+    <section
+      id="featured-projects"
+      className="py-28 bg-[#F4EFE5] text-[#2A3D63]"
+    >
       <div className="mx-auto">
         <div className="text-center mb-14">
           <h2 className="text-4xl md:text-6xl font-serif mt-2">
