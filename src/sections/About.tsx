@@ -71,6 +71,16 @@ export default function About() {
       ],
     },
     {
+      title: "Design & Creative Tools",
+      items: [
+        { icon: <FaFigma />, label: "Figma" },
+        { label: "Webflow" },
+        { label: "Rive" },
+        { label: "Adobe Photoshop" },
+        { label: "Adobe Illustrator" },
+      ],
+    },
+    {
       title: "Version Control",
       items: [{ icon: <FaGithub />, label: "GitHub" }],
     },
