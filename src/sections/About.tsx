@@ -88,20 +88,102 @@ export default function About() {
         viewport={{ once: true, amount: 0.2 }}
         className="space-y-12"
       >
-        {/* INTRO */}
-        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <motion.div variants={itemVariants}>
-            <h2 className="text-5xl text-[#2A3D63] font-serif font-bold mb-6">
-              About Me
-            </h2>
+        {/* EXPERIENCE */}
+        <div className="max-w-4xl mx-auto mt-16">
+          <motion.h3
+            variants={itemVariants}
+            className="text-3xl text-[#2A3D63] font-serif font-semibold mb-6 text-left"
+          >
+            Experience 💼
+          </motion.h3>
 
-            <p className="text-lg leading-relaxed text-left text-neutral-600">
-              Hey! I’m Rashifa — an Indonesia-based tech generalist 👩‍💻
-              <br />
-              With a background in UI/UX and software testing, I love building
-              thoughtful digital experiences that work beautifully and reliably
-              💫
-            </p>
+          <motion.div variants={containerVariants} className="space-y-4">
+            {[
+              {
+                role: "Quality Assurance Engineer",
+                company: "Rove Card, Inc. (New York, US)",
+                period: "2026 - Present",
+              },
+              {
+                role: "Quality Assurance",
+                company: "SMP (Technology) (Jakarta Metropolitan Area)",
+                period: "2024-2026",
+              },
+            ].map((exp, i) => (
+              <motion.div
+                key={i}
+                variants={itemVariants}
+                className="border border-[#2A3D63]/20 rounded-xl p-5 bg-white/40 backdrop-blur-md hover:scale-[1.01] transition"
+              >
+                <div className="flex justify-between items-start gap-4">
+                  <div>
+                    <h4 className="font-semibold text-[#2A3D63]">{exp.role}</h4>
+                    <p className="text-sm text-neutral-600">{exp.company}</p>
+                  </div>
+
+                  <span className="text-xs text-neutral-500 whitespace-nowrap">
+                    {exp.period}
+                  </span>
+                </div>
+
+                <p className="mt-3 text-sm text-neutral-600 leading-relaxed">
+                  {exp.desc}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* EDUCATION */}
+        <div className="max-w-4xl mx-auto mt-16">
+          <motion.h3
+            variants={itemVariants}
+            className="text-3xl text-[#2A3D63] font-serif font-semibold mb-6 text-left"
+          >
+            Education 🎓
+          </motion.h3>
+
+          <motion.div variants={containerVariants} className="space-y-4">
+            {[
+              {
+                school: "Bandung Institute of Technology",
+                org: "Bachelor of Arts (B.A.)",
+                period: "2018 - 20222",
+              },
+              {
+                school: "Purwadhika Technology School",
+                org: "Non-Degree, Software Development",
+                period: "2026",
+              },
+              {
+                school: " Apple Developer Academy Indonesia",
+                org: "Non-Degree, iOS Development",
+                period: "2024",
+              },
+            ].map((edu, i) => (
+              <motion.div
+                key={i}
+                variants={itemVariants}
+                className="border border-[#2A3D63]/20 rounded-xl p-5 bg-white/40 backdrop-blur-md hover:scale-[1.01] transition"
+              >
+                <div className="flex justify-between items-start gap-4">
+                  <div>
+                    <h4 className="font-semibold text-[#2A3D63]">
+                      {edu.school}
+                    </h4>
+                    <p className="text-sm text-neutral-600">{edu.org}</p>
+                  </div>
+
+                  <span className="text-xs text-neutral-500 whitespace-nowrap">
+                    {edu.period}
+                  </span>
+                </div>
+
+                <p className="mt-3 text-sm text-neutral-600 leading-relaxed">
+                  {edu.desc}
+                </p>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
 
