@@ -89,11 +89,11 @@ export default function About() {
   return (
     <section
       id="about"
-      className="py-28 px-4 bg-white text-gray-800 bg-cover bg-center bg-no-repeat"
+      className="py-28 px-4 bg-white overflow-y-auto no-scrollbar text-gray-800 bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${backgrounddd})` }}
     >
       {/* SCROLL WRAPPER (NEW) */}
-      <div className="max-h-[85vh] overflow-y-auto no-scrollbar space-y-12 pr-2">
+      <div className="max-h-[85vh] pr-2">
         <style>
           {`
             .no-scrollbar::-webkit-scrollbar { display: none; }
@@ -109,7 +109,7 @@ export default function About() {
           className="space-y-12"
         >
           {/* EXPERIENCE + EDUCATION SIDE BY SIDE */}
-          <div className="max-w-4xl mx-auto mt-16 grid md:grid-cols-2 gap-10">
+          <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-10">
             {/* EXPERIENCE */}
             <div>
               <motion.h3
