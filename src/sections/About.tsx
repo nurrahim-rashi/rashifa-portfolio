@@ -148,7 +148,7 @@ export default function About() {
               {
                 school: "Bandung Institute of Technology",
                 org: "Bachelor of Arts (B.A.)",
-                period: "2018 - 20222",
+                period: "2018 - 2022",
               },
               {
                 school: "Purwadhika Technology School",
