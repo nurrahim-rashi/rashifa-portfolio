@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import backgroundd from "../images/bg.png";
 import ScrollDownButton from "../components/ScrollDownButton";
+import InteractiveText from "../components/InteractiveText";
 
 export default function Hero() {
   const containerVariants = {
@@ -26,6 +27,36 @@ export default function Hero() {
     },
   };
 
+  const HoverLetter = ({ char }: { char: string }) => {
+    return (
+      <motion.span
+        className="inline-block cursor-default"
+        whileHover={{
+          y: -6,
+          scale: 1.15,
+          color: "#1f3a5b",
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 400,
+          damping: 15,
+        }}
+      >
+        {char === " " ? "\u00A0" : char}
+      </motion.span>
+    );
+  };
+
+  const AnimatedText = ({ text }: { text: string }) => {
+    return (
+      <span className="inline-block">
+        {text.split("").map((char, i) => (
+          <HoverLetter key={i} char={char} />
+        ))}
+      </span>
+    );
+  };
+
   return (
     <section
       id="hero"
@@ -44,14 +75,17 @@ export default function Hero() {
             variants={itemVariants}
             className="text-4xl md:text-6xl text-[#2A3D63] mb-4 leading-tight font-serif tracking-wide"
           >
-            Rashifa Nurrahim
+            <InteractiveText text="Rashifa Nurrahim" />
             <br />
-            is a QA Engineer &
+            <InteractiveText text="is a QA Engineer &" />
             <br />
-            Product Designer based in
+            <InteractiveText text="Product Designer based in" />
             <br />
-            <span className="italic">Indonesia</span>.
-          </motion.h1>
+            <span className="italic">
+              <InteractiveText text="Indonesia" />
+            </span>
+            .
+          </motion.h1>{" "}
         </div>
 
         {/* BUTTONS */}
