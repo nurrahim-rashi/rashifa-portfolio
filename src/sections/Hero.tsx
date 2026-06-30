@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import backgroundd from "../images/bg.png";
 import ScrollDownButton from "../components/ScrollDownButton";
 import InteractiveText from "../components/InteractiveText";
+import PolaroidCard from "../components/PolaroidCard";
 
 export default function Hero() {
   const containerVariants = {
@@ -27,82 +28,91 @@ export default function Hero() {
     },
   };
 
-  const HoverLetter = ({ char }: { char: string }) => {
-    return (
-      <motion.span
-        className="inline-block cursor-default"
-        whileHover={{
-          y: -6,
-          scale: 1.15,
-          color: "#1f3a5b",
-        }}
-        transition={{
-          type: "spring",
-          stiffness: 400,
-          damping: 15,
-        }}
-      >
-        {char === " " ? "\u00A0" : char}
-      </motion.span>
-    );
-  };
-
-  const AnimatedText = ({ text }: { text: string }) => {
-    return (
-      <span className="inline-block">
-        {text.split("").map((char, i) => (
-          <HoverLetter key={i} char={char} />
-        ))}
-      </span>
-    );
-  };
-
   return (
     <section
       id="hero"
-      className="py-36 px-4 text-neutral-800 bg-cover bg-center bg-no-repeat relative"
+      className="relative bg-cover bg-center bg-no-repeat px-6 py-12 text-neutral-800 md:py-18 lg:py-18"
       style={{ backgroundImage: `url(${backgroundd})` }}
     >
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="max-w-4xl mx-auto grid grid-cols-1 gap-4"
+        className="
+          mx-auto
+          grid
+          max-w-7xl
+          grid-cols-1
+          items-center
+          md:gap-16
+          lg:min-h-[75vh]
+          lg:grid-cols-[1.2fr_0.8fr]
+        "
       >
-        {/* NAME BLOCK */}
-        <div className="relative">
-          <motion.h1
-            variants={itemVariants}
-            className="text-4xl md:text-6xl text-[#2A3D63] mb-4 leading-tight font-serif tracking-wide"
-          >
+        {/* LEFT */}
+        <motion.div
+          variants={itemVariants}
+          className="
+            order-1
+            max-w-3xl
+            text-center
+            lg:text-left
+            lg:pl-8
+          "
+        >
+          <h1 className="mb-6 font-serif text-4xl leading-tight tracking-wide text-[#2A3D63] md:text-6xl">
             <InteractiveText text="Rashifa Nurrahim" />
             <br />
             <InteractiveText text="is a QA Engineer &" />
             <br />
-            <InteractiveText text="Product Designer based in" />
+            <InteractiveText text="Product Designer" />
             <br />
+            <InteractiveText text="based in " />
             <span className="italic">
               <InteractiveText text="Indonesia" />
             </span>
             .
-          </motion.h1>{" "}
-        </div>
+          </h1>
 
-        {/* BUTTONS */}
-        <motion.div variants={itemVariants} className="flex gap-4 flex-wrap">
-          <a
-            href="#projects"
-            className="text-xl px-6 py-3 bg-[#2A3D63] text-white rounded-full transition hover:ring-2 hover:ring-white hover:bg-white hover:text-[#2A3D63] hover:border-[#2A3D63] font-serif hover:scale-105"
+          <motion.div
+            variants={itemVariants}
+            className="
+              flex
+              flex-wrap
+              justify-center
+              gap-4
+              lg:justify-start
+            "
           >
-            View Projects
-          </a>
+            <a
+              href="#projects"
+              className="rounded-full bg-[#2A3D63] px-6 py-3 font-serif text-xl text-white transition hover:scale-105 hover:bg-white hover:text-[#2A3D63] hover:ring-2 hover:ring-white"
+            >
+              View Projects
+            </a>
 
-          <a
-            href="#contact"
-            className="text-xl px-6 py-3 text-[#2A3D63] rounded-full border border-[#2A3D63] transition hover:ring-2 hover:ring-white hover:bg-white hover:text-[#2A3D63] hover:border-[#2A3D63] font-serif hover:scale-105"
-          >
-            Get in Touch
-          </a>
+            <a
+              href="#contact"
+              className="rounded-full border border-[#2A3D63] px-6 py-3 font-serif text-xl text-[#2A3D63] transition hover:scale-105 hover:bg-white hover:ring-2 hover:ring-white"
+            >
+              Get in Touch
+            </a>
+          </motion.div>
+        </motion.div>
+
+        {/* RIGHT */}
+        <motion.div
+          variants={itemVariants}
+          className="
+            order-2
+            flex
+            justify-center
+
+            lg:justify-start
+            lg:-translate-x-32
+          "
+        >
+          <PolaroidCard />
         </motion.div>
       </motion.div>
 
