@@ -1,43 +1,30 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
-type Props = {
+type InteractiveTextProps = {
   text: string;
-  className?: string;
 };
 
-export default function InteractiveText({ text, className }: Props) {
+export default function InteractiveText({ text }: InteractiveTextProps) {
   return (
-    <motion.span
-      className={`inline-block ${className}`}
-      initial={{ letterSpacing: "0.02em" }}
-      whileHover={{
-        letterSpacing: "0.04em",
-      }}
-      transition={{
-        letterSpacing: {
-          duration: 0.45,
-          ease: "easeOut",
-        },
-      }}
-    >
-      {text.split("").map((char, i) => (
+    <span className="inline-block">
+      {text.split("").map((ch, i) => (
         <motion.span
           key={i}
-          className="inline-block"
           whileHover={{
-            y: -4,
-            scale: 1.08,
-            rotate: [-2, 2, 0],
+            y: -6,
+            rotate: -4,
           }}
           transition={{
             type: "spring",
-            stiffness: 450,
-            damping: 16,
+            stiffness: 350,
+            damping: 12,
           }}
+          className="inline-block cursor-default"
+          style={{ transformOrigin: "50% 100%" }}
         >
-          {char === " " ? "\u00A0" : char}
+          {ch === " " ? "\u00A0" : ch}
         </motion.span>
       ))}
-    </motion.span>
+    </span>
   );
 }

@@ -5,7 +5,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 shadow-sm bg-white">
+    <header className="fixed top-0 left-0 w-full z-50 shadow-sm bg-white">
       <nav className="flex justify-between items-center max-w-7xl mx-auto px-4 py-3">
         <a
           href="#"
@@ -18,6 +18,18 @@ export default function Navbar() {
         <div className="hidden md:flex gap-6">
           <a
             href="#featured-projects"
+            className="text-[#2A3D63] font-boldrussian hover:text-neutral-900 hover:underline transition"
+          >
+            Featured
+          </a>
+          <a
+            href="#awards"
+            className="text-[#2A3D63] font-boldrussian hover:text-neutral-900 hover:underline transition"
+          >
+            Awards
+          </a>
+          <a
+            href="#projects"
             className="text-[#2A3D63] font-boldrussian hover:text-neutral-900 hover:underline transition"
           >
             Projects
@@ -33,7 +45,7 @@ export default function Navbar() {
             className="text-[#2A3D63] font-boldrussian hover:text-neutral-900 hover:underline transition"
           >
             Contact
-          </a>
+          </a>{" "}
           <a
             href="https://drive.google.com/file/d/1XuEXdviJ2WAJVX1Ym0bhTjceXaF3DU9d/view?usp=sharing"
             target="_blank"

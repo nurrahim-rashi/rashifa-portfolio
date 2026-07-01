@@ -120,10 +120,12 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    overflow-x: hidden;
     font-feature-settings:
       "kern" 1,
       "liga" 1;

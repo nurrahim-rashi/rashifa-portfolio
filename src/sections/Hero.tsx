@@ -30,7 +30,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative bg-cover bg-center bg-no-repeat px-6 py-12 text-neutral-800 md:py-18 lg:py-18"
+      className="relative bg-cover bg-center bg-no-repeat mt-16 px-6 py-12 text-neutral-800 md:py-18 lg:py-18"
       style={{ backgroundImage: `url(${backgroundd})` }}
     >
       <motion.div
@@ -59,7 +59,7 @@ export default function Hero() {
             lg:pl-8
           "
         >
-          <h1 className="mb-6 font-serif text-4xl leading-tight tracking-wide text-[#2A3D63] md:text-6xl">
+          <h1 className="mb-6 font-serif text-3xl leading-tight tracking-wide text-[#2A3D63] md:text-6xl">
             <InteractiveText text="Rashifa Nurrahim" />
             <br />
             <InteractiveText text="is a QA Engineer &" />

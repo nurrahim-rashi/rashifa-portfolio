@@ -112,7 +112,9 @@ export default function FeaturedProjects() {
           viewport={{ once: true }}
           className="text-center mb-6"
         >
-          <h2 className="text-3xl md:text-6xl font-serif">Selected Works 🍵</h2>
+          <h2 className="text-3xl md:text-6xl font-serif">
+            Featured Projects 🍵
+          </h2>
         </motion.div>
 
         {/* SEARCH BAR */}

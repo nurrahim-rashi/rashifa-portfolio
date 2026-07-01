@@ -1,4 +1,4 @@
-const sections = ["hero", "featured-projects", "projects", "about", "contact"];
+import { sections } from "../data/sections";
 
 export default function ScrollDownButton() {
   const scrollToNextSection = () => {

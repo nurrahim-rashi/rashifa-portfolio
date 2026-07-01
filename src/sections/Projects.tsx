@@ -44,7 +44,7 @@ export default function Projects() {
     >
       <div className="max-w-6xl mx-auto text-center">
         {/* Title */}
-        <h2 className="text-4xl font-serif font-bold mb-10 inline-block">
+        <h2 className="text-3xl md:text-6xl font-serif mb-10 inline-block">
           Other Projects✨
         </h2>
 

@@ -23,7 +23,7 @@ type Props = {
 export default function FeaturedProjectCard({ project, active, index }: Props) {
   return (
     <motion.div
-      className="min-w-[33.333%] snap-start flex justify-center"
+      className="min-w-[33.333%] snap-start flex justify-center transition-all duration-300"
       animate={{
         scale: active ? 1 : 0.92,
         rotate: active ? 0 : index % 2 === 0 ? -2 : 2,
@@ -36,7 +36,7 @@ export default function FeaturedProjectCard({ project, active, index }: Props) {
         <div className="absolute inset-0 translate-y-6 scale-95 bg-black/10 blur-2xl" />
 
         {/* Card */}
-        <div className="relative bg-[#fbfaf7] shadow-xl">
+        <div className="relative bg-[#fbfaf7] shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_26px_60px_rgba(42,61,99,0.18)] ${className}">
           {/* Stamp Border */}
           <div className="absolute inset-0 pointer-events-none">
             <svg className="h-full w-full" xmlns="http://www.w3.org/2000/svg">

@@ -29,20 +29,6 @@ export default function PolaroidCard() {
         ease: "easeOut",
       }}
     >
-      {/* ================= BACK CARD ================= */}
-
-      <motion.div
-        style={{
-          rotate: rotateBack,
-          x: xBack,
-        }}
-        className="absolute left-14 top-10 w-72 rounded-md bg-[#f6f4ef] p-3 shadow-xl"
-      >
-        <div className="h-80 rounded bg-[#ece8df]" />
-
-        <p className="mt-1 text-sm italic text-neutral-500">Product Designer</p>
-      </motion.div>
-
       {/* ================= MIDDLE ================= */}
 
       <motion.div
