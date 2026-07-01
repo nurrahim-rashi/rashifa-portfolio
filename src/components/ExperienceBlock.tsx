@@ -5,6 +5,7 @@ const EXPERIENCES = [
   {
     role: "Quality Assurance Engineer",
     company: "Rove Card, Inc. (YC24 FinTech Startup)",
+    location: "New York, United States",
     period: "2026 - Present",
     description:
       "Building calm, reliable testing rituals for fintech systems. Focus on API testing, automation, and release confidence.",
@@ -13,6 +14,7 @@ const EXPERIENCES = [
   {
     role: "Quality Assurance",
     company: "SMP (Technology) (IT Solutions)",
+    location: "Jakarta Metropolitan Area, Indonesia",
     period: "2024 - 2026",
     description:
       "Handled regression cycles, release validation, and bug reporting for enterprise IT systems.",
@@ -21,6 +23,7 @@ const EXPERIENCES = [
   {
     role: "Product Designer",
     company: "Emteka (EdTech Startup)",
+    location: "Jakarta Metropolitan Area, Indonesia",
     period: "2025",
     description:
       "Designed learning flows that reduce friction and improve student engagement across edtech products.",
@@ -110,7 +113,7 @@ export function ExperienceBlock() {
             </h3>
 
             <p className="text-sm text-neutral-600 mt-1">
-              {selected.role} · {selected.period}
+              {selected.role} · {selected.location} · {selected.period}
             </p>
 
             <p className="mt-6 text-neutral-500 leading-relaxed">

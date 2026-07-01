@@ -57,7 +57,7 @@ const stacks: StackGroup[] = [
     ],
   },
   {
-    title: "Tools",
+    title: "Design",
     items: [
       { icon: <FaFigma />, label: "Figma" },
       { label: "Webflow" },
