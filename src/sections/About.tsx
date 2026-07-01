@@ -89,18 +89,11 @@ export default function About() {
   return (
     <section
       id="about"
-      className="py-28 px-4 bg-white overflow-y-auto no-scrollbar text-gray-800 bg-cover bg-center bg-no-repeat"
+      className="py-28 px-4 bg-white overflow-y-auto text-gray-800 bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${backgrounddd})` }}
     >
       {/* SCROLL WRAPPER (NEW) */}
       <div className="max-h-[85vh] pr-2">
-        <style>
-          {`
-            .no-scrollbar::-webkit-scrollbar { display: none; }
-            .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-          `}
-        </style>
-
         <motion.div
           variants={containerVariants}
           initial="hidden"

@@ -10,6 +10,7 @@ import "@fontsource/cormorant-garamond/700.css";
 import "@fontsource/karla/400.css";
 import "@fontsource/karla/500.css";
 import "@fontsource/karla/700.css";
+import "@fontsource/caveat";
 import "preline";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(

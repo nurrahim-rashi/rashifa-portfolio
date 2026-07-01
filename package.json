@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/caveat": "^5.2.8",
     "@fontsource/cormorant-garamond": "^5.2.11",
     "@fontsource/karla": "^5.2.8",
     "framer-motion": "^12.42.1",

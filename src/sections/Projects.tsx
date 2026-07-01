@@ -3,10 +3,8 @@ import ProjectCard from "../components/ProjectCard";
 
 import { motion } from "framer-motion";
 
-import { SiMongodb, SiExpress, SiWordpress } from "react-icons/si";
-import { FaReact, FaNodeJs, FaPhp, FaCss3Alt, FaFigma } from "react-icons/fa";
-import { convertToWebp } from "../utils/image";
 import backgrounddd from "../images/bg3.png";
+import { projects } from "../data/projects";
 
 export default function Projects() {
   const [showMore, setShowMore] = useState(false);
@@ -28,53 +26,6 @@ export default function Projects() {
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
-  const projects = [
-    {
-      title: "Netflix Clone",
-      desc: "A Netflix-style streaming web app built using the MERN stack with user auth and dynamic content.",
-      link: "",
-      tech: [
-        <SiMongodb />,
-        "MongoDB",
-        <SiExpress />,
-        "Express",
-        <FaReact />,
-        "React",
-        <FaNodeJs />,
-        "Node",
-      ],
-    },
-    {
-      title: "Visaku (Apple Developer Academy Project)",
-      desc: "Design prototype using Figma, Rive, and Rotato.",
-      link: "https://rashifa.webflow.io/work/visaku-app",
-      status: "App Store",
-      tech: [<FaFigma />, "Figma"],
-    },
-    {
-      title: "Green Digital Certificate Capstone Project",
-      desc: "Sustainability-focused project in the digital space with INCO Academy.",
-      link: "",
-    },
-    {
-      title: "Pixelkind",
-      desc: "Custom WordPress site with Elementor and learned to customize themes with PHP & CSS.",
-      tech: [
-        <SiWordpress />,
-        "WordPress",
-        <FaPhp />,
-        "PHP",
-        <FaCss3Alt />,
-        "CSS",
-      ],
-    },
-    {
-      title: "Curcool",
-      desc: "Mobile app & web app project, designed with Figma and automated testing using Katalon Studio.",
-      tech: [<FaFigma />, "Figma", "Katalon Studio"],
-    },
-  ];
 
   const displayedProjects = showMore
     ? projects
