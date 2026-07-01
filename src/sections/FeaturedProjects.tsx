@@ -99,7 +99,10 @@ export default function FeaturedProjects() {
   };
 
   return (
-    <section className="bg-[#F4EFE5] py-20 md:py-28 text-[#2A3D63]">
+    <section
+      id="featured-projects"
+      className="bg-[#F4EFE5] py-20 md:py-28 text-[#2A3D63]"
+    >
       <div className="mx-auto">
         {/* TITLE */}
         <motion.div
