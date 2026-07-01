@@ -199,7 +199,7 @@ export default function About() {
                 {[
                   {
                     school: "Bandung Institute of Technology",
-                    org: "Bachelor",
+                    org: "Bachelor of Art (B.A.)",
                     period: "2018 - 2022",
                   },
                   {
