@@ -328,8 +328,8 @@ export default function About() {
                 link="https://learning.inco-group.co/pluginfile.php/1/tool_certificate/issues/1749050153/0481144845RN.pdf"
               />
               <CertificateCard
-                title="McKinsey Forward Program"
-                org="McKinsey"
+                title="McKinsey.org Forward Program"
+                org="McKinsey & Company"
                 year="2025"
                 link="https://www.credly.com/badges/d54c9a4a-0afd-451b-a41a-a611a142a82b/linked_in_profile"
               />
